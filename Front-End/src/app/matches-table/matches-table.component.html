@@ -1,0 +1,53 @@
+<div class="mat-elevation-z8">
+  <table mat-table class="full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
+
+    <ng-container matColumnDef="dateString">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>DATE</th>
+      <td mat-cell *matCellDef="let row">{{row.dateString}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="team1">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>HOME CLUB</th>
+      <td mat-cell *matCellDef="let row">{{row.team1}}</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="team1Score">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>GOALS</th>
+      <td mat-cell *matCellDef="let row">{{row.team1Score}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="team2">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>AWAY CLUB</th>
+      <td mat-cell *matCellDef="let row">{{row.team2}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="team2Score">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>GOALS</th>
+      <td mat-cell *matCellDef="let row">{{row.team2Score}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <section>
+    <div class="row">
+      <label class="label"> CHOOSE A DATE </label>
+    </div>
+    <div class="row">        
+      <!-- <button mat-stroked-button class="btn" (click)="getAllDetails()">ADD RANDOM MATCH</button> -->
+      <button mat-stroked-button class="btn" (click)="getAllDetails()">SHOW ALL MATCHES</button>
+        <input type="date" id="start" name="trip-start" 
+         value="2018-07-22"
+         min="2000-01-01" max="2022-12-31" [(ngModel)]="match.dateString">
+      <button mat-stroked-button class="btn" (click)="showMatches()" (click)="getDateMatch()">SHOW MATCHES</button>
+    </div>
+  </section>
+
+  <mat-paginator #paginator
+      [length]="dataSource?.data.length"
+      [pageIndex]="0"
+      [pageSize]="6"
+      [pageSizeOptions]="[6, 20, 50]">
+  </mat-paginator>
+</div>

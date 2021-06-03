@@ -1,0 +1,79 @@
+<div class="mat-elevation-z8">
+  <table mat-table class="full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
+
+    <ng-container matColumnDef="clubName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>CLUB NAME</th>
+      <td mat-cell *matCellDef="let row">{{row.clubName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="clubLocation">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>CLUB LOCATION</th>
+      <td mat-cell *matCellDef="let row">{{row.clubLocation}}</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="noOfWins">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>WINS</th>
+      <td mat-cell *matCellDef="let row">{{row.noOfWins}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="noOfDraws">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>DRAWS</th>
+      <td mat-cell *matCellDef="let row">{{row.noOfDraws}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="noOfDefeats">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>DEFEATS</th>
+      <td mat-cell *matCellDef="let row">{{row.noOfDefeats}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="noOfGoals">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>GOALS</th>
+      <td mat-cell *matCellDef="let row">{{row.noOfGoals}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="totalScore">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>SCORE</th>
+      <td mat-cell *matCellDef="let row">{{row.totalScore}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="totalPoints">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>POINTS</th>
+      <td mat-cell *matCellDef="let row">{{row.totalPoints}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="noOfMatches">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>MATCHES</th>
+      <td mat-cell *matCellDef="let row">{{row.noOfMatches}}</td>
+    </ng-container>
+
+     <ng-container matColumnDef="getdetails">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let row"> <a ><button  mat-raised-button  (click)="getRecord(row.clubName)" >Delete</button></a> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <div class="row">
+    <div class = "col">
+      <section>
+        <label class="label"> SORT BY </label>
+        <div class="example-button-row">
+          <button mat-stroked-button (click)="sortPointsNow()" class="btn">POINTS</button>
+          <button mat-stroked-button (click)="sortWinsNow()" class="btn">WINS</button>
+          <button mat-stroked-button (click)="sortGoalsNow()" class="btn">GOALS</button>
+          <button mat-raised-button (click)="relegateClubFunction()" >RELEGATE</button>
+        </div>
+      </section>
+    </div>
+ 
+  </div>
+
+  <mat-paginator #paginator
+      [length]="dataSource?.data.length"
+      [pageIndex]="0"
+      [pageSize]="6"
+      [pageSizeOptions]="[6, 20, 50]">
+  </mat-paginator>
+</div>

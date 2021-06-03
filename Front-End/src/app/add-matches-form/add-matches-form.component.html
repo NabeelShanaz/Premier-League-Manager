@@ -1,0 +1,75 @@
+<div class="container">
+
+  <div class="login-box">
+    <h2>ADD MATCH</h2>
+    <form>
+      <div class="datePicker">
+        <input type="date" id="start" name="trip-start" [(ngModel)]="match.dateString" 
+        value="" min="2000-01-01" max="2022-12-31">
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <h3>HOME CLUB</h3>
+          <div class="user-box">
+            <input required type="text" [(ngModel)]="match.team1" name="team1" id="team1" maxlength="28" >
+            <label id="team1">Club Name *</label>
+          </div>
+          <div class="user-box">
+            <input type="text" [(ngModel)]="match.team1Score"  name="team1Score" id="team1Score"  required>
+            <label>Goals *</label>
+          </div>
+        </div>
+        <div class="col">
+          <h3>AWAY CLUB</h3>
+
+          <div class="user-box">
+            <input required type="text" [(ngModel)]="match.team2"  name="team2" id="team2"  maxlength="28" >
+            <label>Club Name *</label>
+          </div>
+          <div class="user-box">
+            <input type="text" [(ngModel)]="match.team2Score"  name="team2Score"  id="team2Score"  required>
+            <label>Goals *</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <a  type="submit" (click)="addRandMatchNow()"  class="addRandom" >
+            <span ></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            ADD RANDOM
+          </a>
+          <a  type="submit" (click)="addMatchNow()" class="add" >
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            ADD MATCH
+          </a>
+      </div>
+    </div>
+
+    
+    </form>
+
+  </div>
+
+  <script >
+    new Picker(document.querySelector('.js-date-picker'), {
+      format: 'MMM D, YYYY',
+      text: {
+        title: 'Pick a date',
+      },
+    });
+  </script>
+
+  
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+ 
+</div>

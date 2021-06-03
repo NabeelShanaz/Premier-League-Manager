@@ -1,0 +1,28 @@
+
+<div class="container">
+<div class="login-box">
+  <h2>ADD CLUB</h2>
+  <form>
+    <div class="user-box">
+      <input required type="text" [(ngModel)]="sportsClub.clubName"  name="clubName" class="text-input" id="clubName"
+       maxlength="28">
+      <label>Club Name *</label>
+    </div>
+    <div class="user-box">
+      <input type="text" [(ngModel)]="sportsClub.clubLocation"  name="clubLocation" class="text-input" id="txt" required>
+      <label>Club Location *</label>
+    </div>
+    <a  type="submit" (click)="addClubNow()" class="submit">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Submit
+    </a>
+  </form>
+</div>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+
